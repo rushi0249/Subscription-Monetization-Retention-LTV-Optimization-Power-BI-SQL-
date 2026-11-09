@@ -36,8 +36,7 @@ The reporting model connects Power BI directly to a cleaned SQL Server analytica
 
 ## 🛠️ Data Pipeline & SQL Transformations
 
-All schema hygiene, null-handling, cohort bucketing, and root-cause rankings were engineered in T-SQL prior to Power BI ingestion. Stored in [`sql/telco_retention_analysis.sql`](sql/telco_retention_analysis.sql):
-
+All schema hygiene, null-handling, cohort bucketing, and root-cause rankings were engineered in **SQL Server Management Studio (SSMS)** prior to Power BI ingestion[cite: 5]. Stored in [`sql/Telco_customer.sql`](sql/Telco_customer.sql):
 ```sql
 /* ============================================================================
    PROJECT: Subscription Monetization, Retention & LTV Optimization (SQL Server)
