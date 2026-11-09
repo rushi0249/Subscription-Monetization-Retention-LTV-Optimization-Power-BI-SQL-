@@ -267,7 +267,7 @@ CALCULATE(
 
 ```text
 ├── assets/
-│   ├── Dashboard_Overview.png               # Full executive dashboard screenshot
+│   ├── Dashboard_Overview.png              # Full executive dashboard screenshot
 │   ├── Segment_Drilldown.png                # Filtered root-cause view screenshot
 │                                            # Power BI data model diagram
 ├── data/
