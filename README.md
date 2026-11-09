@@ -7,10 +7,12 @@ An end-to-end product monetization and retention analytics dashboard engineered 
 ### Executive Population Overview
 
 Displays subscription-wide metrics across **7,043 subscribers** totaling **\$456.12K** in Monthly Recurring Revenue (MRR), a **26.54%** logo churn rate, and a **30.50%** revenue churn rate (**\$139.13K** in lost MRR).
+![Executive Dashboard Overview](assets/Dashboard_Overview.png)
 
 ### Segment & Root-Cause Drill-Down
 
 Dynamic slicing by `age_segment` and `internet_service`, alongside interactive Decomposition Tree root-cause pathing (`Month-to-Month` $\rightarrow$ `Fiber Optic` $\rightarrow$ `Electronic Check` = **\$68,281.50** in lost MRR, accounting for **49%** of all revenue churn).
+![Segment & Root-Cause Drill-Down](assets/Segment_Drilldown.png)
 
 ## 🎯 Project Objectives & Product Use Cases
 
