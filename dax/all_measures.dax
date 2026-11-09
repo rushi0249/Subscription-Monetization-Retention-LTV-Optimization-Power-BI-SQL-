@@ -1,0 +1,53 @@
+====================================================================
+1. USER VOLUME & RETENTION METRICS
+====================================================================
+
+// Total subscriber count across the dataset
+Total Users = COUNTROWS('vw_telco_clean')
+
+// Currently retained subscribers
+Active Users = CALCULATE([Total Users], 'vw_telco_clean'[is_churned] = 0)
+
+// Subscribers who cancelled their service
+Churned Users = CALCULATE([Total Users], 'vw_telco_clean'[is_churned] = 1)
+
+
+====================================================================
+2. RECURRING REVENUE & MONETIZATION METRICS
+====================================================================
+
+// Total Monthly Recurring Revenue (MRR)
+Total MRR = SUM('vw_telco_clean'[monthly_charges])
+
+// Monthly recurring revenue lost to churned subscribers
+Churned MRR = CALCULATE([Total MRR], 'vw_telco_clean'[is_churned] = 1)
+
+// Average Revenue Per User (Monthly)
+ARPU = AVERAGE('vw_telco_clean'[monthly_charges])
+
+
+====================================================================
+3. CHURN & LIFETIME VALUE (LTV) KPIs
+====================================================================
+
+// Percentage of total users who churned
+Logo Churn Rate % = DIVIDE([Churned Users], [Total Users], 0)
+
+// Percentage of total monthly revenue lost to churn
+Revenue Churn Rate % = DIVIDE([Churned MRR], [Total MRR], 0)
+
+// Estimated Customer Lifetime Value based on ARPU and Logo Churn
+Estimated Customer LTV = DIVIDE([ARPU], [Logo Churn Rate %], 0)
+
+
+====================================================================
+4. RISK EXPOSURE & RETENTION TARGETING
+====================================================================
+
+// Active monthly revenue concentrated in high-risk Month-to-Month Fiber accounts
+At-Risk Active MRR = CALCULATE(
+    [Total MRR], 
+    'vw_telco_clean'[is_churned] = 0, 
+    'vw_telco_clean'[Contract Type] = "Month-to-month", 
+    'vw_telco_clean'[Internet Service] = "Fiber optic"
+)
